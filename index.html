@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Imelda Cyntia, S.Kom | Personal Portfolio 2026</title>
+  
+  <!-- Fonts & FontAwesome Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+
+  <style>
+    :root {
+      --bg-gradient: radial-gradient(circle at 10% 20%, #e2e8f0 0%, #cbd5e1 40%, #e2e8f0 90%);
+      --card-bg: rgba(255, 255, 255, 0.82);
+      --card-dark: #1e293b;
+      --card-dark-hover: #0f172a;
+      --text-main: #0f172a;
+      --text-muted: #475569;
+      --border: rgba(255, 255, 255, 0.7);
+      --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+      --radius: 20px;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 35px;
+    }
+
+    /* Base Glassmorphism Card */
+    .card {
+      background: var(--card-bg);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 35px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    /* 1. Header / Hero */
+    .hero {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .hero-title h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.1;
+      letter-spacing: -0.5px;
+    }
+    .hero-title p {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: var(--text-muted);
+      margin-top: 10px;
+      text-transform: uppercase;
+    }
+    .hero-badge {
+      text-align: right;
+    }
+    .hero-badge .tag {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: rgba(30, 41, 59, 0.4);
+      line-height: 1.1;
+      text-transform: uppercase;
+    }
+
+    /* 2. Profile Card */
+    .about-card {
+      background: #1e293b;
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 35px;
+      display: flex;
+      gap: 30px;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+    }
+    .avatar-wrapper {
+      flex: 0 0 160px;
+      text-align: center;
+    }
+    .avatar-wrapper img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 4px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+    }
+    .about-content {
+      flex: 1;
+      min-width: 280px;
+    }
+    .about-content h2 {
+      font-size: 1.6rem;
+      font-weight: 700;
+      margin-bottom: 12px;
+    }
+    .about-content p {
+      font-size: 0.95rem;
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    .about-content strong {
+      color: #ffffff;
+    }
+
+    /* Get In Touch Section */
+    .get-in-touch-section {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+    }
+    .get-in-touch-title {
+      font-size: 2.2rem;
+      font-weight: 800;
+      color: #1e293b;
+      line-height: 1.1;
+      min-width: 160px;
+    }
+    .contact-cards-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      min-width: 260px;
+    }
+
+    /* Contact Card Button */
+    .canva-card-btn {
+      position: relative;
+      border-radius: 18px;
+      padding: 16px 14px 12px 14px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 90px;
+      text-decoration: none;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
+      border: none;
+    }
+    .canva-card-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    }
+    .canva-card-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.6rem;
+    }
+    .canva-card-top .arrow {
+      font-size: 1rem;
+      font-weight: 800;
+      opacity: 0.8;
+    }
+    .canva-card-divider {
+      height: 1px;
+      width: 100%;
+      margin: 8px 0 6px 0;
+      position: relative;
+    }
+    .canva-card-divider::before, .canva-card-divider::after {
+      content: "•";
+      position: absolute;
+      top: -9px;
+      font-size: 12px;
+    }
+    .canva-card-divider::before { left: -2px; }
+    .canva-card-divider::after { right: -2px; }
+
+    .canva-card-bottom {
+      font-size: 0.68rem;
+      font-weight: 700;
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    /* Card Themes */
+    .card-yellow { background: #fde047; color: #1e293b; }
+    .card-yellow .canva-card-divider { background: #1e293b; }
+
+    .card-darkblue { background: #253346; color: #ffffff; }
+    .card-darkblue .canva-card-divider { background: #ffffff; }
+
+    .card-green { background: #bef264; color: #1e293b; }
+    .card-green .canva-card-divider { background: #1e293b; }
+
+    .card-red { background: #ef4444; color: #ffffff; }
+    .card-red .canva-card-divider { background: #ffffff; }
+
+    /* Layout Grid */
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+
+    /* Section Titles */
+    .section-title {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    /* CV & QR Code Card */
+    .cv-card {
+      background: #ffffff;
+      border: 1px solid #cbd5e1;
+      border-radius: var(--radius);
+      padding: 25px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      box-shadow: var(--shadow);
+      margin-bottom: 25px;
+    }
+    .qr-frame {
+      background: #ffffff;
+      padding: 10px;
+      border: 2px dashed #94a3b8;
+      border-radius: 16px;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+    .qr-frame img {
+      width: 140px;
+      height: 140px;
+      display: block;
+      object-fit: contain;
+    }
+    .btn-cv {
+      background: #1e293b;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 12px 24px;
+      border-radius: 25px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: transform 0.2s ease, background 0.2s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+    .btn-cv:hover {
+      background: #0f172a;
+      transform: translateY(-2px);
+    }
+
+    /* Timeline Items */
+    .timeline-item {
+      background: #1e293b;
+      color: #fff;
+      padding: 18px 20px;
+      border-radius: 16px;
+      margin-bottom: 14px;
+      transition: transform 0.2s ease;
+      display: flex;
+      flex-direction: column;
+    }
+    .timeline-item:hover {
+      transform: translateX(4px);
+    }
+    
+    /* Year Badge: Ukuran Pas Sesuai Teks */
+    .timeline-item .year {
+      display: inline-block;
+      width: fit-content;
+      align-self: flex-start;
+      font-size: 0.75rem;
+      font-weight: 700;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 3px 12px;
+      border-radius: 20px;
+      margin-bottom: 8px;
+    }
+    .timeline-item .org {
+      font-size: 0.85rem;
+      color: #cbd5e1;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .timeline-item .role {
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+    .timeline-item .period {
+      font-size: 0.75rem;
+      color: #94a3b8;
+      margin-top: 4px;
+    }
+
+    /* Certifications Grid (2 Kolom Kiri - Kanan) */
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+    .cert-grid .timeline-item {
+      margin-bottom: 0;
+      height: 100%;
+    }
+
+    /* Pill Badges */
+    .pill-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 22px;
+    }
+    .pill {
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 13px;
+      border-radius: 20px;
+      transition: all 0.2s ease;
+      display: inline-block;
+    }
+    .pill-group .pill:nth-child(odd) {
+      background: #1e293b;
+      color: #ffffff;
+      border: 1px solid #1e293b;
+    }
+    .pill-group .pill:nth-child(even) {
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid #cbd5e1;
+      color: #1e293b;
+    }
+    .pill:hover {
+      transform: scale(1.04);
+    }
+
+    /* Tools Grid */
+    .tools-grid {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 12px;
+      margin-top: 15px;
+    }
+    .tool-item {
+      background: #ffffff;
+      border: 1px solid #e2e8f0;
+      border-radius: 14px;
+      padding: 12px 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      text-decoration: none;
+      transition: all 0.25s ease;
+    }
+    .tool-item:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+      border-color: #94a3b8;
+    }
+    .tool-item img {
+      width: 30px;
+      height: 30px;
+      object-fit: contain;
+    }
+    .tool-item span {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #475569;
+    }
+
+    /* Interactive Filter Bar */
+    .filter-bar {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 25px;
+    }
+    .filter-btn {
+      background: rgba(255, 255, 255, 0.7);
+      border: 1px solid #cbd5e1;
+      padding: 8px 18px;
+      border-radius: 20px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: #1e293b;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+    .filter-btn.active, .filter-btn:hover {
+      background: #1e293b;
+      color: #ffffff;
+      border-color: #1e293b;
+    }
+
+    /* Project Cards & Action Buttons */
+    .project-card {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 30px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    }
+    .project-header h3 {
+      font-size: 1.35rem;
+      font-weight: 800;
+      color: #1e293b;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 15px;
+    }
+    .project-points {
+      list-style: none;
+      margin-bottom: 18px;
+    }
+    .project-points li {
+      position: relative;
+      padding-left: 20px;
+      font-size: 0.9rem;
+      color: #334155;
+      margin-bottom: 7px;
+    }
+    .project-points li::before {
+      content: "•";
+      position: absolute;
+      left: 0;
+      color: #1e293b;
+      font-size: 1.4rem;
+      line-height: 1;
+    }
+    .project-outcome {
+      background: rgba(255, 255, 255, 0.95);
+      border-left: 4px solid #1e293b;
+      padding: 12px 16px;
+      border-radius: 8px;
+      font-size: 0.88rem;
+      color: #1e293b;
+      margin-bottom: 20px;
+    }
+    
+    .project-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+    }
+    .btn-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      text-decoration: none;
+      font-size: 0.85rem;
+      font-weight: 700;
+      border-radius: 12px;
+      transition: all 0.2s ease;
+    }
+    
+    /* Action Buttons Theme */
+    .btn-live {
+      background: #1e293b;
+      color: #ffffff;
+      box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2);
+    }
+    .btn-live:hover {
+      background: #0f172a;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
+    }
+    .btn-github {
+      background: rgba(255, 255, 255, 0.85);
+      color: #1e293b;
+      border: 1px solid #cbd5e1;
+    }
+    .btn-github:hover {
+      background: #ffffff;
+      border-color: #94a3b8;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    }
+
+    /* Toast Notification */
+    #toast {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #1e293b;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 12px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.3s ease;
+      z-index: 9999;
+      pointer-events: none;
+    }
+    #toast.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Interactive Clickable Certificate Card */
+    .timeline-item.cert-card-link {
+      text-decoration: none;
+      cursor: pointer;
+      position: relative;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    }
+    .timeline-item.cert-card-link:hover {
+      transform: translateY(-4px);
+      background: #253346;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+    }
+    .cert-link-icon {
+      position: absolute;
+      top: 18px;
+      right: 18px;
+      font-size: 0.95rem;
+      color: #94a3b8;
+      transition: color 0.2s ease, transform 0.2s ease;
+    }
+    .timeline-item.cert-card-link:hover .cert-link-icon {
+      color: #ffffff;
+      transform: translate(2px, -2px);
+    }
+
+    /* Responsive Breakpoints */
+    @media (max-width: 900px) {
+      .grid-2 { 
+        grid-template-columns: 1fr; 
+      }
+      .hero-badge { 
+        text-align: left; 
+      }
+      .get-in-touch-section {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 15px;
+      }
+      .get-in-touch-title {
+        font-size: 1.8rem;
+        text-align: center;
+      }
+      .contact-cards-container {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 10px;
+      }
+      .canva-card-btn {
+        min-height: 75px;
+        padding: 12px 10px 8px 10px;
+      }
+      .canva-card-top {
+        font-size: 1.3rem;
+      }
+      .canva-card-bottom {
+        font-size: 0.62rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 550px) {
+      .tools-grid { 
+        grid-template-columns: repeat(4, 1fr); 
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <!-- 1. Header / Hero -->
+    <header class="card hero">
+      <div class="hero-title">
+        <h1>IMELDA<br>CYNTIA, S.KOM</h1>
+        <p>Data Science | Machine Learning | Computer Vision</p>
+      </div>
+      <div class="hero-badge">
+        <div class="tag">PERSONAL<br>PORTFOLIO<br>2026</div>
+      </div>
+    </header>
+
+    <!-- 2. Profile Card -->
+    <section class="about-card">
+      <div class="avatar-wrapper">
+        <img src="https://lh3.googleusercontent.com/d/17LW_62voswNuhoSaa9wHl5VOcAZwnmzW" alt="Imelda Cyntia">
+      </div>
+      <div class="about-content">
+        <h2>Hallo, Saya Imelda Cyntia!</h2>
+        <p>
+          Lulusan <strong>Informatika Universitas Bengkulu</strong> dengan fokus keahlian di bidang <strong>Data Science, Machine Learning,</strong> dan <strong>Computer Vision</strong>. Memiliki pengalaman dalam pengolahan dan analisis data menggunakan Python, visualisasi data, serta pengembangan model Machine Learning dan Deep Learning. Berpengalaman sebagai <strong>Data Science Facilitator</strong> di Coding Camp DBS Foundation serta asisten praktikum laboratorium komputer. Merupakan penerima <strong>beasiswa Bank Indonesia</strong> dengan minat kuat dalam mengembangkan solusi berbasis teknologi dan data.
+        </p>
+      </div>
+    </section>
+
+    <!-- Get In Touch Section -->
+    <section class="card" style="padding: 25px 30px;">
+      <div class="get-in-touch-section">
+        <div class="get-in-touch-title">
+          Get In<br>Touch
+        </div>
+        
+        <div class="contact-cards-container">
+          
+          <!-- Email Card -->
+          <button class="canva-card-btn card-yellow" onclick="copyText('imeldacyntia@gmail.com', 'Email berhasil disalin!')">
+            <div class="canva-card-top">
+              <i class="fa-solid fa-envelope"></i>
+              <span class="arrow">↗</span>
+            </div>
+            <div class="canva-card-divider"></div>
+            <div class="canva-card-bottom">imeldacyntia@gmail.com</div>
+          </button>
+
+          <!-- LinkedIn Card -->
+          <a href="https://linkedin.com/in/imeldacyntia" target="_blank" class="canva-card-btn card-darkblue">
+            <div class="canva-card-top">
+              <i class="fa-brands fa-linkedin-in"></i>
+              <span class="arrow">↗</span>
+            </div>
+            <div class="canva-card-divider"></div>
+            <div class="canva-card-bottom">linkedin.com/in/imeldacyntia</div>
+          </a>
+
+          <!-- WhatsApp Card -->
+          <a href="https://wa.me/6285819793135" target="_blank" class="canva-card-btn card-green">
+            <div class="canva-card-top">
+              <i class="fa-solid fa-phone"></i>
+              <span class="arrow">↗</span>
+            </div>
+            <div class="canva-card-divider"></div>
+            <div class="canva-card-bottom">+62 858-1979-3135</div>
+          </a>
+
+          <!-- Instagram Card -->
+          <a href="https://instagram.com/imeldacyntia" target="_blank" class="canva-card-btn card-red">
+            <div class="canva-card-top">
+              <i class="fa-brands fa-instagram"></i>
+              <span class="arrow">↗</span>
+            </div>
+            <div class="canva-card-divider"></div>
+            <div class="canva-card-bottom">instagram.com/imeldacyntia</div>
+          </a>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Grid 2 Kolom: Education & Experience vs CV, Skills & Tools -->
+    <div class="grid-2">
+      
+      <!-- Kolom Kiri: Education & Experience -->
+      <div>
+        <!-- Education -->
+        <div class="section-title"><i class="fa-solid fa-graduation-cap"></i> Education</div>
+        <div class="timeline-item" style="background: #ffffff; color: #1e293b; border: 1px solid #cbd5e1;">
+          <span class="year" style="background: #1e293b; color: #fff;">2022 - 2026</span>
+          <div class="org" style="color: #334155; font-weight: 600;"><i class="fa-solid fa-building-columns"></i> Universitas Bengkulu</div>
+          <div class="role" style="color: #0f172a; font-weight: 800;">Informatika | IPK : 3.85 / 4.00</div>
+        </div>
+
+        <!-- Experience (Interactive Clickable Links) -->
+        <div class="section-title" style="margin-top: 30px;">
+          <i class="fa-solid fa-briefcase"></i> Experience
+        </div>
+
+        <!-- Experience 1 -->
+        <a href="https://drive.google.com/file/d/1ZpIzJmytul7UawBjSsw1cgg521v_t_eK/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2026</span>
+          <div class="org"><i class="fa-solid fa-laptop-code"></i> Coding Camp DBS Foundation</div>
+          <div class="role">Data Science Facilitator</div>
+          <div class="period">Feb 2026 - Jul 2026</div>
+        </a>
+
+        <!-- Experience 2 -->
+        <a href="https://drive.google.com/file/d/121DV4naCVTNen3Bp62g16dp8DB8SDKgG/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-laptop-code"></i> Coding Camp DBS Foundation</div>
+          <div class="role">Machine Learning Engineer (MBKM)</div>
+          <div class="period">Feb 2025 - Jul 2025</div>
+        </a>
+
+        <!-- Experience 3 -->
+        <a href="https://drive.google.com/file/d/1ZRkR283m00QsXM1sVyglRisdy5mNAC_G/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-university"></i> Universitas Bengkulu</div>
+          <div class="role">Asisten Praktikum Pemrograman Web</div>
+          <div class="period">Feb 2025 - Mei 2025</div>
+        </a>
+
+        <!-- Experience 4 -->
+        <a href="https://drive.google.com/file/d/11sB-vG8rcRZS2dEDVV0DraHkztQ4gbLk/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2024</span>
+          <div class="org"><i class="fa-solid fa-university"></i> Universitas Bengkulu</div>
+          <div class="role">Asisten Praktikum Basis Data</div>
+          <div class="period">Sep 2024 - Des 2024</div>
+        </a>
+
+        <!-- Experience 5 -->
+        <a href="https://drive.google.com/file/d/1SQEp1vVVeualG_eC-JQAcGFn5TuaZoMJ/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2024</span>
+          <div class="org"><i class="fa-solid fa-university"></i> Universitas Bengkulu</div>
+          <div class="role">Asisten Praktikum Proyek Berorientasi Objek</div>
+          <div class="period">Feb 2024 - Mei 2024</div>
+        </a>
+
+        <!-- Experience 6 -->
+        <a href="https://drive.google.com/file/d/143zC9Gs9BmqNROlUSPiZnmZloM9LgMiY/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2023 - 2024</span>
+          <div class="org"><i class="fa-solid fa-university"></i> Universitas Bengkulu</div>
+          <div class="role">Asisten Praktikum Komputer &amp; Pemrograman</div>
+          <div class="period">Nov 2023 - Mei 2024</div>
+        </a>
+      </div>
+
+      <!-- Kolom Kanan: CV Card, Skills & Tools -->
+      <div>
+        
+       <!-- Interactive CV QR & Link Drive -->
+        <div class="cv-card">
+          <div class="qr-frame">
+            <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://drive.google.com/file/d/1WliUuZ5rHvfJ7Kk3pFZ09UUIjArx0Mkk/view?usp=sharing" alt="QR Code CV">
+          </div>
+          <a href="https://drive.google.com/file/d/1WliUuZ5rHvfJ7Kk3pFZ09UUIjArx0Mkk/view?usp=sharing" target="_blank" class="btn-cv">
+            <i class="fa-solid fa-arrow-up-right-from-square"></i> Click or scan this to see my curriculum vitae
+          </a>
+        </div>
+
+        <div class="card">
+          <div class="section-title"><i class="fa-solid fa-bullseye"></i> Interest & Expertise</div>
+          <ul style="margin-left: 20px; font-size: 0.95rem; margin-bottom: 22px; color: var(--text-muted);">
+            <li>Data Science & Machine Learning</li>
+            <li>Computer Vision & Deep Learning</li>
+          </ul>
+
+          <!-- Hard Skills (HTML5, CSS3, JavaScript setelah Streamlit) -->
+          <div class="section-title"><i class="fa-solid fa-code"></i> Hard Skills</div>
+          <div class="pill-group">
+            <span class="pill">Preprocessing</span>
+            <span class="pill">Feature Engineering</span>
+            <span class="pill">EDA</span>
+            <span class="pill">Data Visualization</span>
+            <span class="pill">Modeling</span>
+            <span class="pill">Model Evaluation</span>
+            <span class="pill">NLP</span>
+            <span class="pill">Sentiment Analysis</span>
+            <span class="pill">Object Detection</span>
+            <span class="pill">Machine Learning</span>
+            <span class="pill">OpenCV</span>
+            <span class="pill">Deep Learning</span>
+            <span class="pill">Computer Vision</span>
+            <span class="pill">Supervised Learning</span>
+            <span class="pill">Unsupervised Learning</span>
+            <span class="pill">Recommendation System</span>
+            <span class="pill">Python</span>
+            <span class="pill">SQL</span>
+            <span class="pill">MySQL</span>
+            <span class="pill">TensorFlow</span>
+            <span class="pill">Scikit-learn</span>
+            <span class="pill">YOLO</span>
+            <span class="pill">Pandas</span>
+            <span class="pill">NumPy</span>
+            <span class="pill">Matplotlib</span>
+            <span class="pill">Seaborn</span>
+            <span class="pill">Streamlit</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+            <span class="pill">Git</span>
+            <span class="pill">GitHub</span>
+          </div>
+          <!-- Soft Skills -->
+          <div class="section-title"><i class="fa-solid fa-user-check"></i> Soft Skills</div>
+          <div class="pill-group">
+            <span class="pill">Problem Solving</span>
+            <span class="pill">Critical Thinking</span>
+            <span class="pill">Technical Communication</span>
+            <span class="pill">Time Management</span>
+            <span class="pill">Teamwork & Collaboration</span>
+            <span class="pill">Adaptability</span>
+          </div>
+
+          <!-- Tools Ecosystem (12 Tools) -->
+          <div class="section-title"><i class="fa-solid fa-wrench"></i> Tools</div>
+          <div class="tools-grid">
+            <div class="tool-item" title="Python">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+              <span>Python</span>
+            </div>
+            <div class="tool-item" title="VS Code">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg" alt="VS Code" />
+              <span>VS Code</span>
+            </div>
+            <div class="tool-item" title="Google Colab">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Google_Colaboratory_SVG_Logo.svg" alt="Colab" />
+              <span>Colab</span>
+            </div>
+            <div class="tool-item" title="Jupyter Notebook">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jupyter/jupyter-original.svg" alt="Jupyter" />
+              <span>Jupyter</span>
+            </div>
+            <div class="tool-item" title="Git">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+              <span>Git</span>
+            </div>
+            <div class="tool-item" title="GitHub">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub" />
+              <span>GitHub</span>
+            </div>
+            <div class="tool-item" title="MySQL">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg" alt="MySQL" />
+              <span>MySQL</span>
+            </div>
+            <div class="tool-item" title="SQL Server">
+              <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/microsoftsqlserver/microsoftsqlserver-plain.svg" alt="SQL" />
+              <span>SQL</span>
+            </div>
+            <div class="tool-item" title="Roboflow">
+              <img src="https://www.logosvgpng.com/wp-content/uploads/2023/03/roboflow-inc-logo-vector.png" 
+                   onerror="this.src='https://bookface-images.s3.amazonaws.com/small_logos/ba0036069bd338a4c6188cb137722d8f584d0016.png'" 
+                   alt="Roboflow" />
+              <span>Roboflow</span>
+            </div>
+            <div class="tool-item" title="Streamlit">
+              <img src="https://streamlit.io/images/brand/streamlit-mark-color.svg" alt="Streamlit" />
+              <span>Streamlit</span>
+            </div>
+            <div class="tool-item" title="Ultralytics YOLO">
+              <img src="https://raw.githubusercontent.com/ultralytics/assets/main/logo/Ultralytics_Logotype_Reverse.svg" style="background:#0b1329; border-radius:6px; padding:2px;" alt="Ultralytics" />
+              <span>YOLO</span>
+            </div>
+            <div class="tool-item" title="Microsoft Excel">
+              <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Microsoft_Excel_2013-2019_logo.svg" alt="Excel" />
+              <span>Excel</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 4. Dedicated Certifications Section (Interactive Clickable Links) -->
+    <section class="card">
+      <div class="section-title"><i class="fa-solid fa-certificate"></i> Certifications</div>
+      
+      <div class="cert-grid">
+        <!-- Sertifikat 1 (Kiri) -->
+        <a href="https://drive.google.com/file/d/1ZpIzJmytul7UawBjSsw1cgg521v_t_eK/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2026</span>
+          <div class="org"><i class="fa-solid fa-award"></i> DBS Foundation &amp; Dicoding Indonesia</div>
+          <div class="role">Facilitator Coding Camp 2026</div>
+          <div class="period">Certificate of Appreciation • No. CC26/LS/XXVI-8/CDC-39</div>
+        </a>
+
+        <!-- Sertifikat 2 (Kanan) -->
+        <a href="https://drive.google.com/file/d/1On4hQdkHD34Ppymc8ogU2jkZPD3_4nNr/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2026</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Dicoding Indonesia</div>
+          <div class="role">Belajar Matematika untuk Data Science</div>
+          <div class="period">Kredensial: MEPJO0G8JZ3V (Aljabar Linear, Kalkulus, &amp; Statistika)</div>
+        </a>
+
+        <!-- Sertifikat 3 (Kiri) -->
+        <a href="https://drive.google.com/file/d/121DV4naCVTNen3Bp62g16dp8DB8SDKgG/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-award"></i> DBS Foundation &amp; Dicoding Indonesia</div>
+          <div class="role">Machine Learning Engineer (Distinction Graduate)</div>
+          <div class="period">Certificate of Completion • CC25/DIST/XXV-07/MC189D5X0429</div>
+        </a>
+
+        <!-- Sertifikat 4 (Kanan) -->
+        <a href="https://drive.google.com/file/d/1oYE9yUqTDGhJ2eiFHRN4BCJf4tz9iZRk/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Dicoding Indonesia</div>
+          <div class="role">Machine Learning Terapan</div>
+          <div class="period">Kredensial: 72ZD5G4VVZYW (Predictive Analytics &amp; NLP)</div>
+        </a>
+
+        <!-- Sertifikat 5 (Kiri) -->
+        <a href="https://drive.google.com/file/d/1tFf9c2WthG3wHGnGOT-Co2yqtEzxobxP/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Dicoding Indonesia</div>
+          <div class="role">Belajar Pengembangan Machine Learning</div>
+          <div class="period">Kredensial: 10P82ER9QPQK (Deployment &amp; Model Optimization)</div>
+        </a>
+
+        <!-- Sertifikat 6 (Kanan) -->
+        <a href="https://drive.google.com/file/d/1I_zRnfJv8BK2ngqgrhwhJlhTPweq7NXu/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Dicoding Indonesia</div>
+          <div class="role">Belajar Fundamental Pemrosesan Data</div>
+          <div class="period">Kredensial: JMZVE7MDOPN9 (Data Pipeline &amp; Cleaning)</div>
+        </a>
+
+        <!-- Sertifikat 7 (Kiri) -->
+        <a href="https://drive.google.com/file/d/1DbJzn6srqrWiDsQUpDIT0QpATT60-2S9/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Dicoding Indonesia</div>
+          <div class="role">Belajar Dasar Visualisasi Data</div>
+          <div class="period">Kredensial: KEXL7Y42WXG2 (Exploratory Data Analysis)</div>
+        </a>
+
+        <!-- Sertifikat 8 (Kanan) -->
+        <a href="https://drive.google.com/file/d/1YEKgTduwlaZiMci0-Ag1FvrA1d5B_I6l/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2025</span>
+          <div class="org"><i class="fa-solid fa-building-columns"></i> Bank Indonesia</div>
+          <div class="role">Penerima Beasiswa Bank Indonesia (GenBI)</div>
+          <div class="period">No. 27/1154/Bn/Srt/B • Predikat: Sangat Baik</div>
+        </a>
+
+        <!-- Sertifikat 9 (Kiri) -->
+        <a href="https://drive.google.com/file/d/1XuvvlCnCt_MLfkp2dbha5-2BuR0jYqUL/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2024</span>
+          <div class="org"><i class="fa-solid fa-stamp"></i> Badan Nasional Sertifikasi Profesi (BNSP)</div>
+          <div class="role">Junior Web Developer</div>
+          <div class="period">LSP BPPTIK • No. Reg. J.1389.02997.2024</div>
+        </a>
+
+        <!-- Sertifikat 10 (Kanan) -->
+        <a href="https://drive.google.com/file/d/1oadcb22ndh5C6_4c64VEIv52Km5CwlYK/view?usp=sharing" target="_blank" class="timeline-item cert-card-link">
+          <i class="fa-solid fa-arrow-up-right-from-square cert-link-icon"></i>
+          <span class="year">2024</span>
+          <div class="org"><i class="fa-solid fa-award"></i> Samsung &amp; Skilvul</div>
+          <div class="role">Samsung Innovation Campus Batch 5</div>
+          <div class="period">No. SKILVUL/CERT/SIC5/2024.IX/2100 (Stage 1)</div>
+        </a>
+      </div>
+
+      <!-- Tombol Akses Arsip Folder -->
+      <div style="text-align: center; margin-top: 25px;">
+        <a href="https://drive.google.com/drive/folders/1bNnJf6XQwPwxP6sVIgjM8QYIyJe1WX7a?usp=sharing" target="_blank" class="btn-cv" style="max-width: 320px; width: 100%;">
+          <i class="fa-solid fa-arrow-up-right-from-square"></i> View All Certificates
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. Interactive Project Section -->
+    <section>
+      <h2 style="font-size: 2.2rem; font-weight: 800; color: #1e293b; text-align: center; margin-bottom: 20px;">
+        PROJECT EXPERIENCE
+      </h2>
+
+      <!-- Filter Bar -->
+      <div class="filter-bar">
+        <button class="filter-btn active" onclick="filterProjects(event, 'all')">Semua Proyek</button>
+        <button class="filter-btn" onclick="filterProjects(event, 'cv')">Computer Vision</button>
+        <button class="filter-btn" onclick="filterProjects(event, 'ml')">Machine Learning & NLP</button>
+        <button class="filter-btn" onclick="filterProjects(event, 'ds')">Data Science & Analytics</button>
+      </div>
+
+      <!-- Project 1: Aksara Ulu Rejang (CV) -->
+      <div class="project-card" data-category="cv">
+        <div class="project-header">
+          <h3>Deteksi Grafem Aksara Ulu Rejang Berbasis YOLOv11</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Preprocessing</span>
+          <span class="pill">Modeling</span>
+          <span class="pill">Computer Vision</span>
+          <span class="pill">Object Detection</span>
+          <span class="pill">Deep Learning</span>
+        </div>
+        <p class="project-desc">
+          Pengembangan sistem pendeteksi grafem Aksara Ulu Rejang berbasis arsitektur YOLOv11 yang mampu mengidentifikasi karakter tulisan tangan maupun fon digital, terintegrasi langsung ke dalam antarmuka web Streamlit.
+        </p>
+        <ul class="project-points">
+          <li>Mengumpulkan dan menganotasi dataset yang mencakup 253 kelas grafem dan sandangan.</li>
+          <li>Menjalankan 8 skenario eksperimen Grid Search untuk optimasi hyperparameter (AdamW vs SGD) selama 100 epoch.</li>
+          <li>Menemukan konfigurasi terbaik yang mencapai <strong>mAP50 99,3%, Precision 98,8%, Recall 99,3%, dan F1-Score 99%</strong>.</li>
+          <li>Melakukan uji ketahanan terhadap rotasi karakter serta sampel negatif untuk mencegah false-positive.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menyediakan sistem deteksi grafem interaktif berbasis web untuk memudahkan visualisasi hasil deteksi sekaligus mendukung digitalisasi dan pembelajaran Aksara Ulu Rejang.
+        </div>
+        <div class="project-actions">
+          <a href="https://aksaraulurejang-app.streamlit.app" target="_blank" class="btn-action btn-live">
+            <i class="fa-solid fa-rocket"></i> Launch App
+          </a>
+          <a href="https://github.com/imeldacyntia/aksaraulurejang-app" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 2: GiziSnap (CV) -->
+      <div class="project-card" data-category="cv">
+        <div class="project-header">
+          <h3>GiziSnap: Deteksi Makanan Lokal Indonesia Berbasis YOLOv11</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Preprocessing</span>
+          <span class="pill">Modeling</span>
+          <span class="pill">Computer Vision</span>
+          <span class="pill">Object Detection</span>
+          <span class="pill">Deep Learning</span>
+        </div>
+        <p class="project-desc">
+          Pengembangan dan pelatihan model Computer Vision berbasis arsitektur YOLOv11 untuk mendeteksi serta mengklasifikasikan 10 jenis makanan lokal Indonesia dari data citra sebagai komponen deteksi visual pada aplikasi web GiziSnap.
+        </p>
+        <ul class="project-points">
+          <li>Mengumpulkan dan memproses dataset citra 10 kelas makanan lokal Indonesia dengan anotasi bounding box via Roboflow.</li>
+          <li>Melatih model YOLOv11 untuk multiclass object detection pada berbagai variasi citra makanan.</li>
+          <li>Menghasilkan performa model optimal dengan skor <strong>mAP50 sebesar 93,9%</strong>.</li>
+          <li>Memvalidasi kestabilan pelatihan model melalui penurunan konsisten pada kurva Box Loss dan Classification Loss.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan model deteksi objek berkinerja tinggi sebagai komponen utama aplikasi web GiziSnap dalam mempermudah identifikasi makanan serta penyajian informasi gizi secara otomatis.
+        </div>
+        <div class="project-actions">
+          <a href="https://gizisnap.netlify.app" target="_blank" class="btn-action btn-live">
+            <i class="fa-solid fa-rocket"></i> Launch App
+          </a>
+          <a href="https://github.com/imeldacyntia/GiziSnap-Rails" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 3: Klasifikasi Citra Hewan MobileNetV2 (CV) -->
+      <div class="project-card" data-category="cv">
+        <div class="project-header">
+          <h3>Klasifikasi Citra Hewan Berbasis Transfer Learning Menggunakan MobileNetV2</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">Deep Learning</span>
+          <span class="pill">Image Classification</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Transfer Learning</span>
+          <span class="pill">MobileNetV2</span>
+        </div>
+        <p class="project-desc">
+          Klasifikasi citra berbasis transfer learning menggunakan arsitektur MobileNetV2 untuk mengidentifikasi 4 kelas hewan yaitu kuda, gajah, laba-laba, dan tupai.
+        </p>
+        <ul class="project-points">
+          <li>Mengolah dataset 4 kelas hewan dengan pembagian data latih, validasi, dan uji terstruktur serta menerapkan augmentasi gambar.</li>
+          <li>Menerapkan transfer learning MobileNetV2 berbobot ImageNet dengan membekukan 100 layer awal dan menambahkan layer klasifikasi kustom.</li>
+          <li>Mencegah overfitting via callbacks menggunakan Early Stopping dan Model Checkpoint yang secara optimal menyelesaikan pelatihan pada epoch ke-8.</li>
+          <li>Mencapai performa uji tinggi, dengan capaian <strong>Test Accuracy sebesar 98,19% dan Test Loss sebesar 0,0753</strong>.</li>
+          <li>Mengonversi model ke format TFLite dan TensorFlow.js, serta menguji inferensi mandiri pada sampel citra baru dengan <strong>akurasi prediksi 100%</strong>.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan model klasifikasi citra yang ringan dan berakurasi tinggi dalam membedakan 4 jenis hewan, serta berhasil dikonversi ke format TFLite dan TensorFlow.js melalui pengujian inferensi yang valid.
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/imeldacyntia/Klasifikasi-Citra-Hewan-Berbasis-Transfer-Learning-Menggunakan-MobileNetV2/tree/main" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 4: Analisis Sentimen LINE (ML & NLP / DS) -->
+      <div class="project-card" data-category="ml ds">
+        <div class="project-header">
+          <h3>Analisis Sentimen Ulasan Aplikasi LINE Menggunakan Pendekatan NLP dan Komparasi Model Deep Learning</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">NLP</span>
+          <span class="pill">Sentiment Analysis</span>
+          <span class="pill">Deep Learning</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Seaborn</span>
+        </div>
+        <p class="project-desc">
+          Analisis sentimen berbasis Natural Language Processing (NLP) dan deep learning untuk mengekstraksi serta mengklasifikasikan persepsi pengguna aplikasi LINE dari 30.000 ulasan Google Play Store ke dalam sentimen positif, netral, dan negatif guna mengevaluasi kualitas aplikasi dan mendukung pengambilan keputusan produk.
+        </p>
+        <ul class="project-points">
+          <li>Mengakuisisi dan memproses dataset mandiri sebesar <strong>30.000 ulasan Google Play Store</strong> via web scraping dengan pipeline NLP Bahasa Indonesia lengkap (regex cleaning, case folding, slang normalization, stopwords filtering).</li>
+          <li>Mengimplementasikan pelabelan otomatis Lexicon-Based Scoring (>10.000 kata), menghasilkan sebaran <strong>63,2% positif, 25,8% netral, dan 11,0% negatif</strong>.</li>
+          <li>Menemukan keluhan utama pengguna terpusat pada isu sistemik kegagalan proses login, sinkronisasi update versi, gangguan kode verifikasi, serta aplikasi lambat/error.</li>
+          <li>Menganalisis karakteristik teks ulasan pengguna, di mana mayoritas ulasan disampaikan secara to-the-point dengan rata-rata 4–15 kata.</li>
+          <li>Melakukan eksperimen komparasi arsitektur deep learning dengan performa uji tinggi  <strong> LSTM sebesar 90,50%, CNN sebesar 87,70%, dan GRU sebesar 92,20%</strong>.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan sistem klasifikasi sentimen otomatis end-to-end yang mampu memetakan feedback pengguna secara akurat, memberikan dasar evaluasi bagi tim pengembang untuk memprioritaskan perbaikan bug alur login dan pembaruan sistem.
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/imeldacyntia/Analisis_Sentimen_Ulasan_Line" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 5: Sistem Rekomendasi Ekowisata (ML & NLP) -->
+      <div class="project-card" data-category="ml">
+        <div class="project-header">
+          <h3>Sistem Rekomendasi Destinasi Ekowisata Menggunakan Content-Based dan Collaborative Filtering</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Recommendation System</span>
+          <span class="pill">TensorFlow</span>
+          <span class="pill">Scikit-Learn</span>
+          <span class="pill">TF-IDF</span>
+        </div>
+        <p class="project-desc">
+          Sistem rekomendasi destinasi ekowisata di Indonesia yang mengombinasikan Content-Based Filtering dan Collaborative Filtering untuk memberikan saran wisata yang relevan dan terpersonalisasi.
+        </p>
+        <ul class="project-points">
+          <li>Mengolah dataset interaksi ekowisata mencakup <strong>182 destinasi unik dan 849 interaksi rating</strong> via normalisasi skala 0–1 dan label encoding.</li>
+          <li>Membangun model Content-Based Filtering menggunakan ekstraksi fitur TF-IDF pada data kategori serta Cosine Similarity untuk pencarian kemiripan destinasi dan filter kota.</li>
+          <li>Mengembangkan model Collaborative Filtering berbasis Matrix Factorization kustom dengan TensorFlow Keras menggunakan 50 dimensi representasi laten.</li>
+          <li>Mengevaluasi performa model dengan capaian <strong>Training RMSE 0,313 dan Validation RMSE 0,604 (MAE 0,244 vs 0,511)</strong>.</li>
+          <li>Menghasilkan <strong>Top-N rekomendasi terpersonalisasi</strong> yang memprediksi preferensi destinasi baru berdasarkan riwayat rating pengguna.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan sistem rekomendasi hibrida berbasis data yang efektif membantu wisatawan menemukan destinasi alam dan budaya sesuai preferensi personal maupun pola preferensi pengguna serupa.
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/imeldacyntia/Sistem-Rekomendasi-Ekowisata-di-Indonesia/blob/main/README.md" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 6: Clustering & Klasifikasi Transaksi Perbankan (ML & NLP / DS) -->
+      <div class="project-card" data-category="ml ds">
+        <div class="project-header">
+          <h3>Clustering dan Klasifikasi Transaksi Perbankan</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">Machine Learning</span>
+          <span class="pill">Clustering</span>
+          <span class="pill">Classification</span>
+          <span class="pill">K-Means</span>
+          <span class="pill">Random Forest</span>
+          <span class="pill">Scikit-Learn</span>
+        </div>
+        <p class="project-desc">
+          Pengelompokan dan klasifikasi transaksi perbankan menggunakan kombinasi Unsupervised dan Supervised Learning untuk memprediksi kategori transaksi.
+        </p>
+        <ul class="project-points">
+          <li>Mengolah <strong>2.512 data transaksi perbankan</strong> melalui standarisasi fitur, label encoding, dan reduksi dimensi PCA 2 komponen.</li>
+          <li>Membentuk 3 klaster transaksi via K-Means berdasarkan evaluasi Elbow Method dan Silhouette Score.</li>
+          <li>Melatih model klasifikasi multi kelas menggunakan algoritma KNN, Decision Tree, dan Random Forest untuk memprediksi klaster transaksi baru.</li>
+          <li>Mengoptimalkan model dengan Hyperparameter Tuning GridSearchCV, meningkatkan akurasi KNN sebesar <strong>+0,99%</strong>.</li>
+          <li>Mencapai performa klasifikasi tinggi <strong>Decision Tree dengan Akurasi 97,61%</strong> dan <strong>Random Forest dengan Akurasi 97,42%</strong>.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan sistem analitik yang mampu mengelompokkan pola transaksi perbankan secara otomatis dan memprediksi kategori klaster pada data transaksi baru secara presisi.
+        </div>
+        <div class="project-actions">
+          <a href="https://github.com/imeldacyntia/Clustering-dan-Klasifikasi-Transaksi-Perbankan" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 7: Insurance Prediction (ML & NLP) -->
+      <div class="project-card" data-category="ml">
+        <div class="project-header">
+          <h3>Prediksi Biaya Asuransi Kesehatan Berbasis Machine Learning</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">Scikit-Learn</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">Gradient Boosting</span>
+          <span class="pill">Regression</span>
+        </div>
+        <p class="project-desc">
+          Pengembangan solusi analitik berbasis Machine Learning untuk mengestimasi besaran premi asuransi kesehatan secara objektif berdasarkan karakteristik demografis dan gaya hidup individu.
+        </p>
+        <ul class="project-points">
+          <li>Membersihkan outliers pada 1.338 data menggunakan metode IQR, menghasilkan 1.191 sampel stabil.</li>
+          <li>Menerapkan standardisasi fitur numerik menggunakan StandardScaler serta binary dan one-hot encoding.</li>
+          <li>Membandingkan performa model KNN, Random Forest, dan Gradient Boosting menggunakan metrik MSE.</li>
+          <li>Menetapkan <strong>Gradient Boosting Regressor</strong> sebagai model terbaik dengan test MSE terendah <strong>18.014.631,47</strong>.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Berhasil membangun model regresi yang akurat dalam memprediksi biaya premi kesehatan serta mengidentifikasi faktor penentu utama (status perokok, usia, dan BMI).
+        </div>
+        <div class="project-actions">
+          <a href="https://predictive-insurance-analytics.streamlit.app" target="_blank" class="btn-action btn-live">
+            <i class="fa-solid fa-rocket"></i> Launch App
+          </a>
+          <a href="https://github.com/imeldacyntia/PredictiveAnalytics" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+      <!-- Project 8: Bike Sharing (DS & Analytics) -->
+      <div class="project-card" data-category="ds">
+        <div class="project-header">
+          <h3>Analisis Pola Perilaku dan Tren Penggunaan Bike Sharing</h3>
+        </div>
+        <div class="pill-group" style="margin-bottom: 12px;">
+          <span class="pill">Python</span>
+          <span class="pill">Pandas</span>
+          <span class="pill">EDA</span>
+          <span class="pill">Data Visualization</span>
+          <span class="pill">Seaborn</span>
+        </div>
+        <p class="project-desc">
+          Analisis data eksploratif untuk memetakan perilaku mobilitas pengguna sistem berbagi sepeda, mengukur sensitivitas permintaan terhadap cuaca, serta menganalisis jam sibuk.
+        </p>
+        <ul class="project-points">
+          <li>Mengintegrasikan dataset harian dan per jam hingga mencapai <strong>15.989 baris data</strong>.</li>
+          <li>Menemukan dominasi aktivitas pada hari kerja mencapai <strong>55,2% dengan rata-rata 4.637 sewa per hari</strong>.</li>
+          <li>Mengidentifikasi penurunan permintaan sewa hingga 58,4% saat kondisi cuaca hujan ringan.</li>
+          <li>Menganalisis lonjakan jam sibuk pengguna terdaftar pada pukul <strong>07:00–08:00 dan 17:00–18:00</strong>.</li>
+        </ul>
+        <div class="project-outcome">
+          <strong>Outcome:</strong> Menghasilkan wawasan strategis berbasis data untuk mengoptimalkan alokasi armada sepeda pada jam sibuk serta menyusun strategi promosi di akhir pekan.
+        </div>
+        <div class="project-actions">
+          <a href="https://bike-dashboard-w7feffnpen3vrcfctz7skj.streamlit.app" target="_blank" class="btn-action btn-live">
+            <i class="fa-solid fa-rocket"></i> Launch App
+          </a>
+          <a href="https://github.com/imeldacyntia/bike-dashboard" target="_blank" class="btn-action btn-github">
+            <i class="fa-brands fa-github"></i> Repository GitHub
+          </a>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer class="card" style="text-align: center; padding: 40px 20px;">
+      <h2 style="font-size: 2rem; font-weight: 800; color: #1e293b; margin-bottom: 25px;">LET'S WORK TOGETHER</h2>
+      <div class="contact-cards-container" style="max-width: 850px; margin: 0 auto;">
+        <button class="canva-card-btn card-yellow" onclick="copyText('imeldacyntia@gmail.com', 'Email berhasil disalin!')">
+          <div class="canva-card-top"><i class="fa-solid fa-envelope"></i><span class="arrow">↗</span></div>
+          <div class="canva-card-divider"></div>
+          <div class="canva-card-bottom">imeldacyntia@gmail.com</div>
+        </button>
+
+        <a href="https://linkedin.com/in/imeldacyntia" target="_blank" class="canva-card-btn card-darkblue">
+          <div class="canva-card-top"><i class="fa-brands fa-linkedin-in"></i><span class="arrow">↗</span></div>
+          <div class="canva-card-divider"></div>
+          <div class="canva-card-bottom">linkedin.com/in/imeldacyntia</div>
+        </a>
+
+        <a href="https://wa.me/6285819793135" target="_blank" class="canva-card-btn card-green">
+          <div class="canva-card-top"><i class="fa-solid fa-phone"></i><span class="arrow">↗</span></div>
+          <div class="canva-card-divider"></div>
+          <div class="canva-card-bottom">+62 858-1979-3135</div>
+        </a>
+
+        <a href="https://instagram.com/imeldacyntia" target="_blank" class="canva-card-btn card-red">
+          <div class="canva-card-top"><i class="fa-brands fa-instagram"></i><span class="arrow">↗</span></div>
+          <div class="canva-card-divider"></div>
+          <div class="canva-card-bottom">instagram.com/imeldacyntia</div>
+        </a>
+      </div>
+      <p style="margin-top: 30px; font-size: 0.85rem; color: #64748b;">© 2026 Imelda Cyntia. All Rights Reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- Toast Notification -->
+  <div id="toast">Teks berhasil disalin!</div>
+
+  <!-- Interactive JavaScript -->
+  <script>
+    function copyText(text, message) {
+      navigator.clipboard.writeText(text).then(() => {
+        const toast = document.getElementById('toast');
+        toast.textContent = message;
+        toast.classList.add('show');
+        setTimeout(() => {
+          toast.classList.remove('show');
+        }, 2500);
+      });
+    }
+
+    function filterProjects(event, category) {
+      const buttons = document.querySelectorAll('.filter-btn');
+      buttons.forEach(btn => btn.classList.remove('active'));
+      event.currentTarget.classList.add('active');
+
+      const cards = document.querySelectorAll('.project-card');
+      cards.forEach(card => {
+        const cardCat = card.getAttribute('data-category') || '';
+        if (category === 'all' || cardCat.split(' ').includes(category)) {
+          card.style.display = 'block';
+        } else {
+          card.style.display = 'none';
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
