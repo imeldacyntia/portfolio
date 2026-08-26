@@ -173,50 +173,58 @@
   .canva-card-btn {
     position: relative;
     border-radius: 18px;
-    padding: 16px 12px 12px 12px;
+    padding: 14px 10px 10px 10px;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    min-height: 90px;
+    min-height: 85px;
     text-decoration: none;
-    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.08);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     cursor: pointer;
     border: none;
     width: 100%;
+    min-width: 0;        /* WAJIB: Mencegah tombol meluap ke kanan */
+    overflow: hidden;    /* Memastikan tidak ada elemen yang tembus border */
   }
+  
   .canva-card-btn:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
   }
+  
   .canva-card-top {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
   }
+  
   .canva-card-top .arrow {
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 800;
     opacity: 0.8;
   }
+  
   .canva-card-divider {
     height: 1px;
     width: 100%;
-    margin: 8px 0 6px 0;
+    margin: 6px 0;
     position: relative;
   }
-  .canva-card-divider::before, .canva-card-divider::after {
+  
+  .canva-card-divider::before, 
+  .canva-card-divider::after {
     content: "•";
     position: absolute;
-    top: -9px;
-    font-size: 12px;
+    top: -8px;
+    font-size: 10px;
   }
-  .canva-card-divider::before { left: -2px; }
-  .canva-card-divider::after { right: -2px; }
-
+  .canva-card-divider::before { left: 0px; }   /* Ubah dari -2px ke 0px agar tidak keluar kartu */
+  .canva-card-divider::after { right: 0px; }   /* Ubah dari -2px ke 0px agar tidak keluar kartu */
+  
   .canva-card-bottom {
-    font-size: 0.65rem;
+    font-size: 0.6rem;
     font-weight: 700;
     text-align: center;
     white-space: nowrap;
@@ -225,7 +233,6 @@
     display: block;
     width: 100%;
   }
-
   /* Card Themes */
   .card-yellow { background: #fde047; color: #1e293b; }
   .card-yellow .canva-card-divider { background: #1e293b; }
@@ -644,9 +651,9 @@
       width: 100%;
     }
     .contact-cards-container {
-      grid-template-columns: repeat(2, 1fr) !important;
-      gap: 10px;
-      width: 100%;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important; /* minmax(0, 1fr) memaksa kedua kolom sama lebar dan pas di dalam layar HP */
+        gap: 10px !important;
+        width: 100% !important;
     }
     .canva-card-btn {
       min-height: 72px;
