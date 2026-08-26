@@ -77,29 +77,27 @@
     width: 100%;
   }
   .hero-title h1 {
-    font-size: 2.8rem;
+    font-size: 2.2rem;
     font-weight: 800;
     color: #1e293b;
-    line-height: 1.1;
+    line-height: 1.2;
     letter-spacing: -0.5px;
   }
   .hero-title p {
-    font-size: 0.95rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 2px;
+    letter-spacing: 1.5px;
     color: var(--text-muted);
-    margin-top: 10px;
+    margin-top: 8px;
     text-transform: uppercase;
-  }
-  .hero-badge {
-    text-align: right;
   }
   .hero-badge .tag {
     font-size: 1.8rem;
     font-weight: 800;
-    color: rgba(30, 41, 59, 0.4);
+    color: rgba(30, 41, 59, 0.25);
     line-height: 1.1;
     text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
   /* 2. Profile Card */
@@ -628,12 +626,16 @@
       gap: 20px;
     }
     .hero {
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 10px;
-    }
-    .hero-badge { 
-      text-align: left; 
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 12px;
+      }
+      .hero-badge {
+        display: none; /* Sembunyikan badge watermark agar layar HP tetap ringkas & fokus ke nama */
+      }
+      .hero-title h1 {
+        font-size: 1.8rem;
+      }
     }
     .about-card {
     flex-direction: column;
@@ -702,16 +704,16 @@
 
   <div class="container">
 
-    <!-- 1. Header / Hero -->
-    <header class="card hero">
-      <div class="hero-title">
-        <h1>PERSONAL<br>PORTFOLIO</h1>
-        <p>Data Science | Machine Learning | Computer Vision</p>
-      </div>
-      <div class="hero-badge">
-        <div class="tag">IMELDA CYNTIA, S.KOM</div>
-      </div>
-    </header>
+  <!-- 1. Header / Hero -->
+  <header class="card hero">
+    <div class="hero-title">
+      <h1>IMELDA CYNTIA, S.KOM</h1>
+      <p>Data Science | Machine Learning | Computer Vision</p>
+    </div>
+    <div class="hero-badge">
+      <div class="tag">PORTFOLIO</div>
+    </div>
+  </header>
 
     <!-- 2. Profile Card -->
     <section class="about-card">
