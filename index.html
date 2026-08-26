@@ -196,9 +196,9 @@
   
   .canva-card-top {
     display: flex;
-    justify-content: center; /* Ikon berada pas di tengah kartu */
+    justify-content: space-between; /* Mendorong panah ke ujung kanan */
     align-items: center;
-    font-size: 1.5rem;
+    width: 100%;
   }
   
   .canva-card-top .arrow {
@@ -733,44 +733,44 @@
           Get In<br>Touch
         </div>
         
-        <div class="contact-cards-container">
-          
-         <!-- Email -->
-          <a href="mailto:imeldacyntia@gmail.com" class="canva-card-btn card-yellow">
-            <div class="canva-card-top">
-              <i class="fa-solid fa-envelope"></i>
-            </div>
-            <div class="canva-card-divider"></div>
-            <span class="canva-card-bottom">imeldacyntia@gmail.com</span>
-          </a>
-        
-          <!-- LinkedIn -->
-          <a href="https://linkedin.com/in/imeldacyntia" target="_blank" class="canva-card-btn card-darkblue">
-            <div class="canva-card-top">
-              <i class="fa-brands fa-linkedin"></i>
-            </div>
-            <div class="canva-card-divider"></div>
-            <span class="canva-card-bottom">in/imeldacyntia</span>
-          </a>
-        
-          <!-- WhatsApp / Phone -->
-          <a href="https://wa.me/6285819793135" target="_blank" class="canva-card-btn card-green">
-            <div class="canva-card-top">
-              <i class="fa-solid fa-phone"></i>
-            </div>
-            <div class="canva-card-divider"></div>
-            <span class="canva-card-bottom">+62 858-1979-3135</span>
-          </a>
-        
-          <!-- Instagram -->
-          <a href="https://instagram.com/imeldacyntia" target="_blank" class="canva-card-btn card-red">
-            <div class="canva-card-top">
-              <i class="fa-brands fa-instagram"></i>
-            </div>
-            <div class="canva-card-divider"></div>
-            <span class="canva-card-bottom">@imeldacyntia</span>
-          </a>
+     <div class="contact-cards-container">
+      <!-- Email (Dengan Panah Terpisah ke Kanan) -->
+      <a href="mailto:imeldacyntia@gmail.com" class="canva-card-btn card-yellow">
+        <div class="canva-card-top">
+          <i class="fa-solid fa-envelope"></i>
+          <span class="arrow"><i class="fa-solid fa-arrow-up-right-from-square"></i></span>
         </div>
+        <div class="canva-card-divider"></div>
+        <span class="canva-card-bottom">imeldacyntia@gmail.com</span>
+      </a>
+    
+      <!-- LinkedIn -->
+      <a href="https://linkedin.com/in/imeldacyntia" target="_blank" class="canva-card-btn card-darkblue">
+        <div class="canva-card-top">
+          <i class="fa-brands fa-linkedin"></i>
+        </div>
+        <div class="canva-card-divider"></div>
+        <span class="canva-card-bottom">in/imeldacyntia</span>
+      </a>
+    
+      <!-- WhatsApp -->
+      <a href="https://wa.me/6285819793135" target="_blank" class="canva-card-btn card-green">
+        <div class="canva-card-top">
+          <i class="fa-solid fa-phone"></i>
+        </div>
+        <div class="canva-card-divider"></div>
+        <span class="canva-card-bottom">+62 858-1979-3135</span>
+      </a>
+    
+      <!-- Instagram -->
+      <a href="https://instagram.com/imeldacyntia" target="_blank" class="canva-card-btn card-red">
+        <div class="canva-card-top">
+          <i class="fa-brands fa-instagram"></i>
+        </div>
+        <div class="canva-card-divider"></div>
+        <span class="canva-card-bottom">@imeldacyntia</span>
+      </a>
+    </div>
       </div>
     </section>
 
