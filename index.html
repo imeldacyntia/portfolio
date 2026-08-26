@@ -196,9 +196,9 @@
   
   .canva-card-top {
     display: flex;
-    justify-content: space-between;
+    justify-content: center; /* Ikon berada pas di tengah kartu */
     align-items: center;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
   }
   
   .canva-card-top .arrow {
@@ -735,46 +735,41 @@
         
         <div class="contact-cards-container">
           
-          <!-- Email Card -->
-          <button class="canva-card-btn card-yellow" onclick="copyText('imeldacyntia@gmail.com', 'Email berhasil disalin!')">
+         <!-- Email -->
+          <a href="mailto:imeldacyntia@gmail.com" class="canva-card-btn card-yellow">
             <div class="canva-card-top">
               <i class="fa-solid fa-envelope"></i>
-              <span class="arrow">↗</span>
             </div>
             <div class="canva-card-divider"></div>
-            <div class="canva-card-bottom">imeldacyntia@gmail.com</div>
-          </button>
-
-          <!-- LinkedIn Card -->
+            <span class="canva-card-bottom">imeldacyntia@gmail.com</span>
+          </a>
+        
+          <!-- LinkedIn -->
           <a href="https://linkedin.com/in/imeldacyntia" target="_blank" class="canva-card-btn card-darkblue">
             <div class="canva-card-top">
-              <i class="fa-brands fa-linkedin-in"></i>
-              <span class="arrow">↗</span>
+              <i class="fa-brands fa-linkedin"></i>
             </div>
             <div class="canva-card-divider"></div>
-            <div class="canva-card-bottom">in/imeldacyntia</div>
+            <span class="canva-card-bottom">in/imeldacyntia</span>
           </a>
-
-          <!-- WhatsApp Card -->
+        
+          <!-- WhatsApp / Phone -->
           <a href="https://wa.me/6285819793135" target="_blank" class="canva-card-btn card-green">
             <div class="canva-card-top">
               <i class="fa-solid fa-phone"></i>
-              <span class="arrow">↗</span>
             </div>
             <div class="canva-card-divider"></div>
-            <div class="canva-card-bottom">+62 858-1979-3135</div>
+            <span class="canva-card-bottom">+62 858-1979-3135</span>
           </a>
-
-          <!-- Instagram Card -->
+        
+          <!-- Instagram -->
           <a href="https://instagram.com/imeldacyntia" target="_blank" class="canva-card-btn card-red">
             <div class="canva-card-top">
               <i class="fa-brands fa-instagram"></i>
-              <span class="arrow">↗</span>
             </div>
             <div class="canva-card-divider"></div>
-            <div class="canva-card-bottom">@imeldacyntia</div>
+            <span class="canva-card-bottom">@imeldacyntia</span>
           </a>
-
         </div>
       </div>
     </section>
