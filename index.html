@@ -141,6 +141,7 @@
     font-size: 0.95rem;
     color: #cbd5e1;
     line-height: 1.7;
+    text-align: justify; /* Membuat teks rata kanan-kiri */
   }
   .about-content strong {
     color: #ffffff;
@@ -635,9 +636,18 @@
       text-align: left; 
     }
     .about-card {
-      flex-direction: column;
-      text-align: center;
-      gap: 20px;
+    flex-direction: column;
+    text-align: left; /* Ganti dari 'center' menjadi 'left' agar blok teks tidak terpusat */
+    gap: 20px;
+    }
+    
+    .about-content h2 {
+      text-align: center; /* Judul nama tetap bisa di-center jika diinginkan */
+    }
+  
+    .about-content p {
+      text-align: justify; /* Memastikan di HP tetap rata kanan-kiri */
+      text-justify: inter-word;
     }
     .get-in-touch-section {
       flex-direction: column;
