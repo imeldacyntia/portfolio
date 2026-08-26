@@ -12,621 +12,674 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
   <style>
-    :root {
-      --bg-gradient: radial-gradient(circle at 10% 20%, #e2e8f0 0%, #cbd5e1 40%, #e2e8f0 90%);
-      --card-bg: rgba(255, 255, 255, 0.82);
-      --card-dark: #1e293b;
-      --card-dark-hover: #0f172a;
-      --text-main: #0f172a;
-      --text-muted: #475569;
-      --border: rgba(255, 255, 255, 0.7);
-      --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
-      --radius: 20px;
-    }
+  :root {
+    --bg-gradient: radial-gradient(circle at 10% 20%, #e2e8f0 0%, #cbd5e1 40%, #e2e8f0 90%);
+    --card-bg: rgba(255, 255, 255, 0.82);
+    --card-dark: #1e293b;
+    --card-dark-hover: #0f172a;
+    --text-main: #0f172a;
+    --text-muted: #475569;
+    --border: rgba(255, 255, 255, 0.7);
+    --shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    --radius: 20px;
+  }
 
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Plus Jakarta Sans', sans-serif;
-    }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
 
-    html {
-      scroll-behavior: smooth;
-    }
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
 
+  body {
+    background: var(--bg-gradient);
+    color: var(--text-main);
+    min-height: 100vh;
+    padding: 40px 20px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  .container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+  }
+
+  /* Base Glassmorphism Card */
+  .card {
+    background: var(--card-bg);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 35px;
+    width: 100%;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  /* 1. Header / Hero */
+  .hero {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    width: 100%;
+  }
+  .hero-title h1 {
+    font-size: 2.8rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.1;
+    letter-spacing: -0.5px;
+  }
+  .hero-title p {
+    font-size: 0.95rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--text-muted);
+    margin-top: 10px;
+    text-transform: uppercase;
+  }
+  .hero-badge {
+    text-align: right;
+  }
+  .hero-badge .tag {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: rgba(30, 41, 59, 0.4);
+    line-height: 1.1;
+    text-transform: uppercase;
+  }
+
+  /* 2. Profile Card */
+  .about-card {
+    background: #1e293b;
+    color: #ffffff;
+    border-radius: var(--radius);
+    padding: 35px;
+    display: flex;
+    gap: 30px;
+    align-items: center;
+    flex-wrap: wrap;
+    box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
+    width: 100%;
+  }
+  .avatar-wrapper {
+    flex: 0 0 160px;
+    text-align: center;
+    margin: 0 auto;
+  }
+  .avatar-wrapper img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+  }
+  .about-content {
+    flex: 1;
+    min-width: 260px;
+  }
+  .about-content h2 {
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .about-content p {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    line-height: 1.7;
+  }
+  .about-content strong {
+    color: #ffffff;
+  }
+
+  /* Get In Touch Section */
+  .get-in-touch-section {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    flex-wrap: wrap;
+    width: 100%;
+  }
+  .get-in-touch-title {
+    font-size: 2.2rem;
+    font-weight: 800;
+    color: #1e293b;
+    line-height: 1.1;
+    min-width: 160px;
+  }
+  .contact-cards-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+    width: 100%;
+  }
+
+  /* Contact Card Button */
+  .canva-card-btn {
+    position: relative;
+    border-radius: 18px;
+    padding: 16px 12px 12px 12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 90px;
+    text-decoration: none;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    cursor: pointer;
+    border: none;
+    width: 100%;
+  }
+  .canva-card-btn:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+  }
+  .canva-card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 1.5rem;
+  }
+  .canva-card-top .arrow {
+    font-size: 1rem;
+    font-weight: 800;
+    opacity: 0.8;
+  }
+  .canva-card-divider {
+    height: 1px;
+    width: 100%;
+    margin: 8px 0 6px 0;
+    position: relative;
+  }
+  .canva-card-divider::before, .canva-card-divider::after {
+    content: "•";
+    position: absolute;
+    top: -9px;
+    font-size: 12px;
+  }
+  .canva-card-divider::before { left: -2px; }
+  .canva-card-divider::after { right: -2px; }
+
+  .canva-card-bottom {
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: block;
+    width: 100%;
+  }
+
+  /* Card Themes */
+  .card-yellow { background: #fde047; color: #1e293b; }
+  .card-yellow .canva-card-divider { background: #1e293b; }
+
+  .card-darkblue { background: #253346; color: #ffffff; }
+  .card-darkblue .canva-card-divider { background: #ffffff; }
+
+  .card-green { background: #bef264; color: #1e293b; }
+  .card-green .canva-card-divider { background: #1e293b; }
+
+  .card-red { background: #ef4444; color: #ffffff; }
+  .card-red .canva-card-divider { background: #ffffff; }
+
+  /* Layout Grid */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    width: 100%;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* CV & QR Code Card */
+  .cv-card {
+    background: #ffffff;
+    border: 1px solid #cbd5e1;
+    border-radius: var(--radius);
+    padding: 25px 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: var(--shadow);
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  .qr-frame {
+    background: #ffffff;
+    padding: 10px;
+    border: 2px dashed #94a3b8;
+    border-radius: 16px;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  .qr-frame img {
+    width: 130px;
+    height: 130px;
+    display: block;
+    object-fit: contain;
+  }
+  .btn-cv {
+    background: #1e293b;
+    color: #ffffff;
+    text-decoration: none;
+    padding: 12px 18px;
+    border-radius: 25px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: transform 0.2s ease, background 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    max-width: 100%;
+    text-align: center;
+  }
+  .btn-cv:hover {
+    background: #0f172a;
+    transform: translateY(-2px);
+  }
+
+  /* Timeline Items */
+  .timeline-item {
+    background: #1e293b;
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 16px;
+    margin-bottom: 14px;
+    transition: transform 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+  .timeline-item:hover {
+    transform: translateX(4px);
+  }
+  
+  .timeline-item .year {
+    display: inline-block;
+    width: fit-content;
+    align-self: flex-start;
+    font-size: 0.75rem;
+    font-weight: 700;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 3px 12px;
+    border-radius: 20px;
+    margin-bottom: 8px;
+  }
+  .timeline-item .org {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .timeline-item .role {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin-top: 4px;
+  }
+  .timeline-item .period {
+    font-size: 0.75rem;
+    color: #94a3b8;
+    margin-top: 4px;
+  }
+
+  /* Certifications Grid */
+  .cert-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    width: 100%;
+  }
+  .cert-grid .timeline-item {
+    margin-bottom: 0;
+    height: 100%;
+  }
+
+  /* Pill Badges */
+  .pill-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 22px;
+    width: 100%;
+  }
+  .pill {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 6px 13px;
+    border-radius: 20px;
+    transition: all 0.2s ease;
+    display: inline-block;
+  }
+  .pill-group .pill:nth-child(odd) {
+    background: #1e293b;
+    color: #ffffff;
+    border: 1px solid #1e293b;
+  }
+  .pill-group .pill:nth-child(even) {
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid #cbd5e1;
+    color: #1e293b;
+  }
+  .pill:hover {
+    transform: scale(1.04);
+  }
+
+  /* Tools Grid */
+  .tools-grid {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 12px;
+    margin-top: 15px;
+    width: 100%;
+  }
+  .tool-item {
+    background: #ffffff;
+    border: 1px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 12px 6px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+    width: 100%;
+  }
+  .tool-item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.08);
+    border-color: #94a3b8;
+  }
+  .tool-item img {
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+  }
+  .tool-item span {
+    font-size: 0.68rem;
+    font-weight: 700;
+    color: #475569;
+  }
+
+  /* Interactive Filter Bar */
+  .filter-bar {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 25px;
+    width: 100%;
+  }
+  .filter-btn {
+    background: rgba(255, 255, 255, 0.7);
+    border: 1px solid #cbd5e1;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: #1e293b;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  .filter-btn.active, .filter-btn:hover {
+    background: #1e293b;
+    color: #ffffff;
+    border-color: #1e293b;
+  }
+
+  /* Project Cards & Action Buttons */
+  .project-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    padding: 30px;
+    margin-bottom: 25px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+  }
+  .project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+  }
+  .project-header h3 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: #1e293b;
+    margin-bottom: 10px;
+  }
+  .project-desc {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    margin-bottom: 15px;
+  }
+  .project-points {
+    list-style: none;
+    margin-bottom: 18px;
+  }
+  .project-points li {
+    position: relative;
+    padding-left: 20px;
+    font-size: 0.9rem;
+    color: #334155;
+    margin-bottom: 7px;
+  }
+  .project-points li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: #1e293b;
+    font-size: 1.4rem;
+    line-height: 1;
+  }
+  .project-outcome {
+    background: rgba(255, 255, 255, 0.95);
+    border-left: 4px solid #1e293b;
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 0.88rem;
+    color: #1e293b;
+    margin-bottom: 20px;
+  }
+  
+  .project-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: center;
+  }
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 700;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+  }
+  
+  .btn-live {
+    background: #1e293b;
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2);
+  }
+  .btn-live:hover {
+    background: #0f172a;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
+  }
+  .btn-github {
+    background: rgba(255, 255, 255, 0.85);
+    color: #1e293b;
+    border: 1px solid #cbd5e1;
+  }
+  .btn-github:hover {
+    background: #ffffff;
+    border-color: #94a3b8;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  }
+
+  /* Toast Notification */
+  #toast {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+    background: #1e293b;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+    z-index: 9999;
+    pointer-events: none;
+  }
+  #toast.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Interactive Clickable Certificate Card */
+  .timeline-item.cert-card-link {
+    text-decoration: none;
+    cursor: pointer;
+    position: relative;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  }
+  .timeline-item.cert-card-link:hover {
+    transform: translateY(-4px);
+    background: #253346;
+    box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
+  }
+  .cert-link-icon {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    font-size: 0.95rem;
+    color: #94a3b8;
+    transition: color 0.2s ease, transform 0.2s ease;
+  }
+  .timeline-item.cert-card-link:hover .cert-link-icon {
+    color: #ffffff;
+    transform: translate(2px, -2px);
+  }
+
+  /* =========================================
+     RESPONSIVE BREAKPOINTS (Mobile & Tablet)
+     ========================================= */
+  @media (max-width: 900px) {
     body {
-      background: var(--bg-gradient);
-      color: var(--text-main);
-      min-height: 100vh;
-      padding: 40px 20px;
-      line-height: 1.6;
+      padding: 20px 12px;
     }
-
     .container {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      gap: 35px;
-    }
-
-    /* Base Glassmorphism Card */
-    .card {
-      background: var(--card-bg);
-      backdrop-filter: blur(14px);
-      -webkit-backdrop-filter: blur(14px);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 35px;
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    /* 1. Header / Hero */
-    .hero {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
       gap: 20px;
     }
-    .hero-title h1 {
-      font-size: 2.8rem;
-      font-weight: 800;
-      color: #1e293b;
-      line-height: 1.1;
-      letter-spacing: -0.5px;
+    .card, .about-card, .project-card {
+      padding: 22px 16px;
     }
-    .hero-title p {
-      font-size: 0.95rem;
-      font-weight: 700;
-      letter-spacing: 2px;
-      color: var(--text-muted);
-      margin-top: 10px;
-      text-transform: uppercase;
+    .grid-2 { 
+      grid-template-columns: 1fr; 
+      gap: 20px;
     }
-    .hero-badge {
-      text-align: right;
+    .hero {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px;
     }
-    .hero-badge .tag {
-      font-size: 1.8rem;
-      font-weight: 800;
-      color: rgba(30, 41, 59, 0.4);
-      line-height: 1.1;
-      text-transform: uppercase;
+    .hero-badge { 
+      text-align: left; 
     }
-
-    /* 2. Profile Card */
     .about-card {
-      background: #1e293b;
-      color: #ffffff;
-      border-radius: var(--radius);
-      padding: 35px;
-      display: flex;
-      gap: 30px;
-      align-items: center;
-      flex-wrap: wrap;
-      box-shadow: 0 15px 35px rgba(15, 23, 42, 0.25);
-    }
-    .avatar-wrapper {
-      flex: 0 0 160px;
+      flex-direction: column;
       text-align: center;
+      gap: 20px;
     }
-    .avatar-wrapper img {
-      width: 150px;
-      height: 150px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 4px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.2);
-    }
-    .about-content {
-      flex: 1;
-      min-width: 280px;
-    }
-    .about-content h2 {
-      font-size: 1.6rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-    .about-content p {
-      font-size: 0.95rem;
-      color: #cbd5e1;
-      line-height: 1.7;
-    }
-    .about-content strong {
-      color: #ffffff;
-    }
-
-    /* Get In Touch Section */
     .get-in-touch-section {
-      display: flex;
+      flex-direction: column;
       align-items: center;
-      gap: 25px;
-      flex-wrap: wrap;
+      gap: 15px;
+      width: 100%;
     }
     .get-in-touch-title {
-      font-size: 2.2rem;
-      font-weight: 800;
-      color: #1e293b;
-      line-height: 1.1;
-      min-width: 160px;
+      font-size: 1.7rem;
+      text-align: center;
+      width: 100%;
     }
     .contact-cards-container {
-      flex: 1;
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 15px;
-      min-width: 260px;
+      grid-template-columns: repeat(2, 1fr) !important;
+      gap: 10px;
+      width: 100%;
     }
-
-    /* Contact Card Button */
     .canva-card-btn {
-      position: relative;
-      border-radius: 18px;
-      padding: 16px 14px 12px 14px;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      min-height: 90px;
-      text-decoration: none;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.08);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-      cursor: pointer;
-      border: none;
-    }
-    .canva-card-btn:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 12px 24px rgba(0,0,0,0.15);
+      min-height: 72px;
+      padding: 10px 8px 8px 8px;
     }
     .canva-card-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 1.6rem;
+      font-size: 1.25rem;
     }
-    .canva-card-top .arrow {
-      font-size: 1rem;
-      font-weight: 800;
-      opacity: 0.8;
-    }
-    .canva-card-divider {
-      height: 1px;
-      width: 100%;
-      margin: 8px 0 6px 0;
-      position: relative;
-    }
-    .canva-card-divider::before, .canva-card-divider::after {
-      content: "•";
-      position: absolute;
-      top: -9px;
-      font-size: 12px;
-    }
-    .canva-card-divider::before { left: -2px; }
-    .canva-card-divider::after { right: -2px; }
-
     .canva-card-bottom {
-      font-size: 0.68rem;
-      font-weight: 700;
-      text-align: center;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
+      font-size: 0.6rem;
     }
+  }
 
-    /* Card Themes */
-    .card-yellow { background: #fde047; color: #1e293b; }
-    .card-yellow .canva-card-divider { background: #1e293b; }
-
-    .card-darkblue { background: #253346; color: #ffffff; }
-    .card-darkblue .canva-card-divider { background: #ffffff; }
-
-    .card-green { background: #bef264; color: #1e293b; }
-    .card-green .canva-card-divider { background: #1e293b; }
-
-    .card-red { background: #ef4444; color: #ffffff; }
-    .card-red .canva-card-divider { background: #ffffff; }
-
-    /* Layout Grid */
-    .grid-2 {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 30px;
-    }
-
-    /* Section Titles */
-    .section-title {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #1e293b;
-      margin-bottom: 18px;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    /* CV & QR Code Card */
-    .cv-card {
-      background: #ffffff;
-      border: 1px solid #cbd5e1;
-      border-radius: var(--radius);
-      padding: 25px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      box-shadow: var(--shadow);
-      margin-bottom: 25px;
-    }
-    .qr-frame {
-      background: #ffffff;
-      padding: 10px;
-      border: 2px dashed #94a3b8;
-      border-radius: 16px;
-      display: inline-block;
-      margin-bottom: 15px;
-    }
-    .qr-frame img {
-      width: 140px;
-      height: 140px;
-      display: block;
-      object-fit: contain;
-    }
-    .btn-cv {
-      background: #1e293b;
-      color: #ffffff;
-      text-decoration: none;
-      padding: 12px 24px;
-      border-radius: 25px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
-      transition: transform 0.2s ease, background 0.2s ease;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-    }
-    .btn-cv:hover {
-      background: #0f172a;
-      transform: translateY(-2px);
-    }
-
-    /* Timeline Items */
-    .timeline-item {
-      background: #1e293b;
-      color: #fff;
-      padding: 18px 20px;
-      border-radius: 16px;
-      margin-bottom: 14px;
-      transition: transform 0.2s ease;
-      display: flex;
-      flex-direction: column;
-    }
-    .timeline-item:hover {
-      transform: translateX(4px);
-    }
-    
-    /* Year Badge: Ukuran Pas Sesuai Teks */
-    .timeline-item .year {
-      display: inline-block;
-      width: fit-content;
-      align-self: flex-start;
-      font-size: 0.75rem;
-      font-weight: 700;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 3px 12px;
-      border-radius: 20px;
-      margin-bottom: 8px;
-    }
-    .timeline-item .org {
-      font-size: 0.85rem;
-      color: #cbd5e1;
-      display: flex;
-      align-items: center;
-      gap: 6px;
-    }
-    .timeline-item .role {
-      font-size: 0.95rem;
-      font-weight: 700;
-      margin-top: 4px;
-    }
-    .timeline-item .period {
-      font-size: 0.75rem;
-      color: #94a3b8;
-      margin-top: 4px;
-    }
-
-    /* Certifications Grid (2 Kolom Kiri - Kanan) */
+  @media (max-width: 768px) {
     .cert-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 16px;
+      grid-template-columns: 1fr;
     }
-    .cert-grid .timeline-item {
-      margin-bottom: 0;
-      height: 100%;
-    }
+  }
 
-    /* Pill Badges */
-    .pill-group {
-      display: flex;
-      flex-wrap: wrap;
+  @media (max-width: 550px) {
+    .tools-grid { 
+      grid-template-columns: repeat(3, 1fr); 
       gap: 8px;
-      margin-bottom: 22px;
     }
-    .pill {
-      font-size: 0.8rem;
-      font-weight: 600;
-      padding: 6px 13px;
-      border-radius: 20px;
-      transition: all 0.2s ease;
-      display: inline-block;
-    }
-    .pill-group .pill:nth-child(odd) {
-      background: #1e293b;
-      color: #ffffff;
-      border: 1px solid #1e293b;
-    }
-    .pill-group .pill:nth-child(even) {
-      background: rgba(255, 255, 255, 0.85);
-      border: 1px solid #cbd5e1;
-      color: #1e293b;
-    }
-    .pill:hover {
-      transform: scale(1.04);
-    }
-
-    /* Tools Grid */
-    .tools-grid {
-      display: grid;
-      grid-template-columns: repeat(6, 1fr);
-      gap: 12px;
-      margin-top: 15px;
-    }
-    .tool-item {
-      background: #ffffff;
-      border: 1px solid #e2e8f0;
-      border-radius: 14px;
-      padding: 12px 8px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      text-decoration: none;
-      transition: all 0.25s ease;
-    }
-    .tool-item:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 15px rgba(0,0,0,0.08);
-      border-color: #94a3b8;
-    }
-    .tool-item img {
-      width: 30px;
-      height: 30px;
-      object-fit: contain;
-    }
-    .tool-item span {
-      font-size: 0.7rem;
-      font-weight: 700;
-      color: #475569;
-    }
-
-    /* Interactive Filter Bar */
-    .filter-bar {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-bottom: 25px;
-    }
-    .filter-btn {
-      background: rgba(255, 255, 255, 0.7);
-      border: 1px solid #cbd5e1;
-      padding: 8px 18px;
-      border-radius: 20px;
-      font-size: 0.85rem;
-      font-weight: 700;
-      color: #1e293b;
-      cursor: pointer;
-      transition: all 0.2s ease;
-    }
-    .filter-btn.active, .filter-btn:hover {
-      background: #1e293b;
-      color: #ffffff;
-      border-color: #1e293b;
-    }
-
-    /* Project Cards & Action Buttons */
-    .project-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 30px;
-      margin-bottom: 25px;
-      box-shadow: var(--shadow);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-    .project-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 15px 35px rgba(0,0,0,0.1);
-    }
-    .project-header h3 {
-      font-size: 1.35rem;
-      font-weight: 800;
-      color: #1e293b;
-      margin-bottom: 10px;
-    }
-    .project-desc {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      margin-bottom: 15px;
-    }
-    .project-points {
-      list-style: none;
-      margin-bottom: 18px;
-    }
-    .project-points li {
-      position: relative;
-      padding-left: 20px;
-      font-size: 0.9rem;
-      color: #334155;
-      margin-bottom: 7px;
-    }
-    .project-points li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #1e293b;
-      font-size: 1.4rem;
-      line-height: 1;
-    }
-    .project-outcome {
-      background: rgba(255, 255, 255, 0.95);
-      border-left: 4px solid #1e293b;
-      padding: 12px 16px;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      color: #1e293b;
-      margin-bottom: 20px;
-    }
-    
-    .project-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      align-items: center;
+    .hero-title h1 {
+      font-size: 2.1rem;
     }
     .btn-action {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      padding: 10px 18px;
-      text-decoration: none;
-      font-size: 0.85rem;
-      font-weight: 700;
-      border-radius: 12px;
-      transition: all 0.2s ease;
+      width: 100%;
+      justify-content: center;
     }
-    
-    /* Action Buttons Theme */
-    .btn-live {
-      background: #1e293b;
-      color: #ffffff;
-      box-shadow: 0 4px 12px rgba(30, 41, 59, 0.2);
-    }
-    .btn-live:hover {
-      background: #0f172a;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(15, 23, 42, 0.3);
-    }
-    .btn-github {
-      background: rgba(255, 255, 255, 0.85);
-      color: #1e293b;
-      border: 1px solid #cbd5e1;
-    }
-    .btn-github:hover {
-      background: #ffffff;
-      border-color: #94a3b8;
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    }
-
-    /* Toast Notification */
-    #toast {
-      position: fixed;
-      bottom: 25px;
-      right: 25px;
-      background: #1e293b;
-      color: #fff;
-      padding: 12px 24px;
-      border-radius: 12px;
-      font-size: 0.9rem;
-      font-weight: 600;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.3s ease;
-      z-index: 9999;
-      pointer-events: none;
-    }
-    #toast.show {
-      opacity: 1;
-      transform: translateY(0);
-    }
-
-    /* Interactive Clickable Certificate Card */
-    .timeline-item.cert-card-link {
-      text-decoration: none;
-      cursor: pointer;
-      position: relative;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
-    }
-    .timeline-item.cert-card-link:hover {
-      transform: translateY(-4px);
-      background: #253346;
-      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.25);
-    }
-    .cert-link-icon {
-      position: absolute;
-      top: 18px;
-      right: 18px;
-      font-size: 0.95rem;
-      color: #94a3b8;
-      transition: color 0.2s ease, transform 0.2s ease;
-    }
-    .timeline-item.cert-card-link:hover .cert-link-icon {
-      color: #ffffff;
-      transform: translate(2px, -2px);
-    }
-
-    /* Responsive Breakpoints */
-    @media (max-width: 900px) {
-      .grid-2 { 
-        grid-template-columns: 1fr; 
-      }
-      .hero-badge { 
-        text-align: left; 
-      }
-      .get-in-touch-section {
-        flex-direction: column;
-        align-items: stretch;
-        gap: 15px;
-      }
-      .get-in-touch-title {
-        font-size: 1.8rem;
-        text-align: center;
-      }
-      .contact-cards-container {
-        grid-template-columns: repeat(2, 1fr) !important;
-        gap: 10px;
-      }
-      .canva-card-btn {
-        min-height: 75px;
-        padding: 12px 10px 8px 10px;
-      }
-      .canva-card-top {
-        font-size: 1.3rem;
-      }
-      .canva-card-bottom {
-        font-size: 0.62rem;
-      }
-    }
-
-    @media (max-width: 768px) {
-      .cert-grid {
-        grid-template-columns: 1fr;
-      }
-    }
-
-    @media (max-width: 550px) {
-      .tools-grid { 
-        grid-template-columns: repeat(4, 1fr); 
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
 
